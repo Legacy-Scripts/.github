@@ -32,7 +32,7 @@
 </table>
 
 ### LGF Open Source Resources
-- [**LGF_CORE**](https://github.com/ENT510/LGF_CORE): Core functionalities for the Legacy framework.
+- [**LGF_CORE**](https://github.com/ENT510/LGF_CORE): Core By ENT510 (work in progress).
 - [**LGF_OwnableStation**](https://github.com/ENT510/LGF_OwnableStation): Station ownership management system.
 - [**LGF_Notify**](https://github.com/ENT510/LGF_Notify): Notification system for various events.
 - [**LGF_Banking**](https://github.com/ENT510/LGF_Banking): Comprehensive banking system.
