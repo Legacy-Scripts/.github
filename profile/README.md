@@ -42,13 +42,15 @@
 
 
 
+
 <!-- STATS_START -->
 <p align="center">
     <img alt="Total Stars" src="https://img.shields.io/badge/Stars-10★-gold" />
-    <img alt="Total Commits" src="https://img.shields.io/badge/Commits-44⛢-green" />
+    <img alt="Total Commits" src="https://img.shields.io/badge/Commits-45-green" />
     <img alt="Total Contributors" src="https://img.shields.io/badge/Contributors-2ጰ-blue" />
     <img alt="Total Forks" src="https://img.shields.io/badge/Forks-7↰↱-orange" />
 </p>
 <!-- STATS_END -->
+    
     
     
