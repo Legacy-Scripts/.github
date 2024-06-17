@@ -1,8 +1,9 @@
 name: Update Repository Stats
 
 on:
-  schedule:
-    - cron: "0 0 * * *"
+  push:
+    branches:
+      - test-workflow
   workflow_dispatch:
 
 jobs:
@@ -26,4 +27,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.UPDATE_README }}
         run: |
-          python scripts/update_stats.py "${GITHUB_TOKEN}"
+          python scripts/update_stats.py "${{ secrets.UPDATE_README }}"
