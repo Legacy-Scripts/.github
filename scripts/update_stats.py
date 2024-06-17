@@ -12,7 +12,8 @@ def update_contributors(new_list: list, initial_list: list = []) -> list:
     return initial_list
 
 def update_readme():
-    g = Github(os.getenv('RELEASE_TOKEN'))
+    token = os.getenv('GITHUB_TOKEN')
+    g = Github(token)
     org = g.get_organization(ORG_NAME)
 
 
@@ -34,11 +35,17 @@ def update_readme():
         )
         repo_stats["forks"] += repo.forks_count
 
+    print("Total Statistics:")
+    print(" - Stars", repo_stats["stars"])
+    print(" - Commits", repo_stats["commits"])
+    print(" - Contributors", len(repo_stats["contributors"]))
+    print(" - Forks", repo_stats["forks"])
+
     updated_content = f"""
 {start_marker}
 <p align="center">
     <img alt="Total Stars" src="https://img.shields.io/badge/Stars-{repo_stats["stars"]}★-gold" />
-    <img alt="Total Commits" src="https://img.shields.io/badge/Commits-{repo_stats["commits"]}⛢-green" />
+    <img alt="Total Commits" src="https://img.shields.io/badge/Commits-{repo_stats["commits"]}-green" />
     <img alt="Total Contributors" src="https://img.shields.io/badge/Contributors-{len(repo_stats["contributors"])}ጰ-blue" />
     <img alt="Total Forks" src="https://img.shields.io/badge/Forks-{repo_stats["forks"]}↰↱-orange" />
 </p>
@@ -66,12 +73,13 @@ def update_readme():
     with open(readme_path, 'w') as file:
         file.write("\n".join(updated_readme))
 
-    os.system('git config --global user.email "actions@github.com"')
-    os.system('git config --global user.name "GitHub Actions"')
-    os.system(f'git checkout {TARGET_BRANCH}')
-    os.system(f'git add {readme_path}')
-    os.system('git commit -m "Update README.md with latest stats"')
-    os.system(f'git push origin {TARGET_BRANCH}')
+    if token is not None:
+        os.system('git config --global user.email "actions@github.com"')
+        os.system('git config --global user.name "GitHub Actions"')
+        os.system(f'git checkout {TARGET_BRANCH}')
+        os.system(f'git add {readme_path}')
+        os.system('git commit -m "Update README.md with latest stats"')
+        os.system(f'git push origin {TARGET_BRANCH}')
 
 if __name__ == "__main__":
     update_readme()
