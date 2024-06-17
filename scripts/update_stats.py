@@ -11,7 +11,7 @@ def update_contributors(new_list: list, initial_list: list = []) -> list:
 
     return initial_list
 
-def update_readme(token:string=None):
+def update_readme(token:str=None):
     g = Github(token)
     org = g.get_organization(ORG_NAME)
 
