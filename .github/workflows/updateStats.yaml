@@ -1,83 +1,29 @@
-name: Update Organization Statistics
+name: Update Repository Stats
 
 on:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: "0 0 * * *"
   workflow_dispatch:
-  push:
-    paths:
-      - 'updateStats.yaml'
 
 jobs:
-  update-readme:
+  update-stats:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
 
-    - name: Install dependencies
-      run: npm install @octokit/rest
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install PyGithub
 
-    - name: Fetch repository statistics
-      id: fetch-stats
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      run: |
-        const { Octokit } = require("@octokit/rest");
-        const fs = require('fs');
-
-        const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-        const org = 'Legacy-Framework';
-
-        async function getTotalStats() {
-          const { data: repos } = await octokit.repos.listForOrg({ org, type: 'all', per_page: 100 });
-
-          let totalStats = {
-            totalStars: 0,
-            totalWatchers: 0,
-            totalForks: 0,
-            totalCommits: 0,
-            totalContributors: 0
-          };
-
-          for (const repo of repos) {
-            const { data: repoData } = await octokit.repos.get({ owner: org, repo: repo.name });
-            const { data: contributors } = await octokit.repos.listContributors({ owner: org, repo: repo.name });
-
-            totalStats.totalStars += repoData.stargazers_count;
-            totalStats.totalWatchers += repoData.watchers_count;
-            totalStats.totalForks += repoData.forks_count;
-            totalStats.totalCommits += repoData.size; // Use any appropriate metric for total commits
-            totalStats.totalContributors += contributors.length;
-          }
-
-          return totalStats;
-        }
-
-        async function main() {
-          const totalStats = await getTotalStats();
-          fs.writeFileSync('.github/profile/README.md', generateReadmeContent(totalStats));
-        }
-
-        function generateReadmeContent(stats) {
-          return `
-          # Organization Statistics
-
-          - Total Stars: ${stats.totalStars}
-          - Total Watchers: ${stats.totalWatchers}
-          - Total Forks: ${stats.totalForks}
-          - Total Commits: ${stats.totalCommits}
-          - Total Contributors: ${stats.totalContributors}
-          `;
-        }
-
-        main().catch(error => {
-          console.error(error);
-          process.exit(1);
-        });
+      - name: Update Repository Stats
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python update_stats.py 
