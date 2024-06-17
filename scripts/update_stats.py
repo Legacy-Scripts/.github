@@ -80,6 +80,9 @@ def update_readme():
         os.system(f'git add {readme_path}')
         os.system('git commit -m "Update README.md with latest stats"')
         os.system(f'git push origin {TARGET_BRANCH}')
+    else:
+        print('No Token was found for "GITHUB_TOKEN"')
+        print('Keys:', os.environ.keys())
 
 if __name__ == "__main__":
     update_readme()
