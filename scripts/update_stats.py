@@ -15,6 +15,7 @@ def update_readme(token:str=None):
     g = Github(token)
     org = g.get_organization(ORG_NAME)
 
+    print('token', token)
 
     start_marker = '<!-- STATS_START -->'
     end_marker = '<!-- STATS_END -->'
@@ -26,6 +27,7 @@ def update_readme(token:str=None):
         "forks": 0,
     }
     for repo in org.get_repos():
+        print(repo)
         repo_stats["stars"] += repo.stargazers_count
         repo_stats["commits"] += repo.get_commits().totalCount
         repo_stats["contributors"] = update_contributors(
