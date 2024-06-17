@@ -89,10 +89,10 @@ def update_readme(token:str=None):
 
 if __name__ == "__main__":
 
-    print("\nSystem Arguments Valid?", len(sys.argv) < 2, "\nManual Token Override?", (TOKEN is None and (isinstance(TOKEN, str) and len(TOKEN) < 15)),"\n")
-    
+    print("\nSystem Arguments Valid?", len(sys.argv) < 2, "\nManual Token Override?", TOKEN is None, "\nValid Token?", (isinstance(TOKEN, str) and len(TOKEN) < 15),"\n")
+
     if len(sys.argv) < 2 ^ (TOKEN is None and (isinstance(TOKEN, str) and len(TOKEN) < 15)):
-        print("Error: Missing GITHUB_TOKEN argument")
+        print("\nError: Missing GITHUB_TOKEN argument\n")
         sys.exit(1)
 
     github_token = TOKEN or sys.argv[1]
