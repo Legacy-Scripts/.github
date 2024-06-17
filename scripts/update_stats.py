@@ -88,8 +88,11 @@ def update_readme(token:str=None):
     with open(readme_path, 'w') as file:
         file.write("\n".join(updated_readme))
 
+    print("\n     Adding File")
     os.system(f'git add {readme_path}')
+    print("\n     Commiting File")
     os.system('git commit -m "chore: update README stats"')
+    print("\n     Pushing Changes")
     os.system(f'git push origin {TARGET_BRANCH}')
 
 if __name__ == "__main__":
