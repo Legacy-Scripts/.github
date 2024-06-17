@@ -26,4 +26,4 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
         run: |
-          python scripts/update_stats.py 
+          python scripts/update_stats.py "${GITHUB_TOKEN}"

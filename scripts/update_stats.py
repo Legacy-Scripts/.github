@@ -1,4 +1,4 @@
-import os
+import os, sys
 from github import Github
 
 ORG_NAME = 'Legacy-Framework'
@@ -11,8 +11,7 @@ def update_contributors(new_list: list, initial_list: list = []) -> list:
 
     return initial_list
 
-def update_readme():
-    token = os.getenv('GITHUB_TOKEN')
+def update_readme(token:string=None):
     g = Github(token)
     org = g.get_organization(ORG_NAME)
 
@@ -73,7 +72,7 @@ def update_readme():
     with open(readme_path, 'w') as file:
         file.write("\n".join(updated_readme))
 
-    if token is not None and False:
+    if token is not None:
         os.system('git config --global user.email "actions@github.com"')
         os.system('git config --global user.name "GitHub Actions"')
         os.system(f'git checkout {TARGET_BRANCH}')
@@ -85,4 +84,9 @@ def update_readme():
         print('Keys:', os.environ.keys())
 
 if __name__ == "__main__":
-    update_readme()
+    if len(sys.argv) < 2:
+        print("Error: Missing GITHUB_TOKEN argument")
+        sys.exit(1)
+
+    github_token = sys.argv[1]
+    update_readme(token=github_token)
