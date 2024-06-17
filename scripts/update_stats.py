@@ -12,7 +12,7 @@ def update_contributors(new_list: list, initial_list: list = []) -> list:
     return initial_list
 
 def update_readme():
-    g = Github(os.getenv('GITHUB_TOKEN'))
+    g = Github(os.getenv('RELEASE_TOKEN'))
     org = g.get_organization(ORG_NAME)
 
 
