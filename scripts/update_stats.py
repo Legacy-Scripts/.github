@@ -73,7 +73,7 @@ def update_readme():
     with open(readme_path, 'w') as file:
         file.write("\n".join(updated_readme))
 
-    if token is not None and false:
+    if token is not None and False:
         os.system('git config --global user.email "actions@github.com"')
         os.system('git config --global user.name "GitHub Actions"')
         os.system(f'git checkout {TARGET_BRANCH}')
