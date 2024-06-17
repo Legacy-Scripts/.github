@@ -30,12 +30,13 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         const { Octokit } = require("@octokit/rest");
+        const fs = require('fs');
 
         const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
-        const org = 'YOUR_ORG_NAME';
+        const org = 'Legacy-Framework';
 
         async function getTotalStats() {
-          const { data: repos } = await octokit.repos.listForOrg({ org, per_page: 100 });
+          const { data: repos } = await octokit.repos.listForOrg({ org, type: 'all', per_page: 100 });
 
           let totalStats = {
             totalStars: 0,
@@ -59,18 +60,24 @@ jobs:
           return totalStats;
         }
 
-        console.log(JSON.stringify(await getTotalStats()));
+        async function main() {
+          const totalStats = await getTotalStats();
+          fs.writeFileSync('.github/profile/README.md', generateReadmeContent(totalStats));
+        }
 
-    - name: Update README with global statistics
-      run: |
-        # Replace the actual update logic here
-        # Example:
-        echo "Updating README with global statistics"
+        function generateReadmeContent(stats) {
+          return `
+          # Organization Statistics
 
-    - name: Commit changes
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add profile/README.md
-        git commit -m 'chore: Update README statistics'
-        git push
+          - Total Stars: ${stats.totalStars}
+          - Total Watchers: ${stats.totalWatchers}
+          - Total Forks: ${stats.totalForks}
+          - Total Commits: ${stats.totalCommits}
+          - Total Contributors: ${stats.totalContributors}
+          `;
+        }
+
+        main().catch(error => {
+          console.error(error);
+          process.exit(1);
+        });
