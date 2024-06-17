@@ -27,13 +27,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.UPDATE_README }}
         run: |
           python scripts/update_stats.py "${GITHUB_TOKEN}"
-
-      - name: Commit and push changes
-        env:
-          GITHUB_TOKEN: ${{ secrets.UPDATE_README }}
-        run: |
-          git config --global user.email "actions@github.com"
-          git config --global user.name "GitHub Actions"
-          git add profile/README.md
-          git commit -m "chore: update README stats"
-          git push origin main
