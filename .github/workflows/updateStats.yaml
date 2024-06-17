@@ -24,65 +24,53 @@ jobs:
     - name: Install dependencies
       run: npm install @octokit/rest
 
-    - name: Fetch and update statistics
+    - name: Fetch repository statistics
+      id: fetch-stats
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        node <<EOF
         const { Octokit } = require("@octokit/rest");
-        const fs = require('fs');
 
         const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
         const org = 'YOUR_ORG_NAME';
 
-        async function getRepoStats(repo) {
-          const { data: repoData } = await octokit.repos.get({ owner: org, repo });
-          const { data: contributors } = await octokit.repos.listContributors({ owner: org, repo });
-
-          return {
-            name: repoData.name,
-            stars: repoData.stargazers_count,
-            watchers: repoData.watchers_count,
-            forks: repoData.forks_count,
-            commits: repoData.pushed_at,
-            contributors: contributors.length
-          };
-        }
-
-        async function main() {
+        async function getTotalStats() {
           const { data: repos } = await octokit.repos.listForOrg({ org, per_page: 100 });
-          const stats = await Promise.all(repos.map(repo => getRepoStats(repo.name)));
 
-          let readme = fs.readFileSync('README.md', 'utf8');
-          const startMarker = '<!-- STATS_START -->';
-          const endMarker = '<!-- STATS_END -->';
+          let totalStats = {
+            totalStars: 0,
+            totalWatchers: 0,
+            totalForks: 0,
+            totalCommits: 0,
+            totalContributors: 0
+          };
 
-          const startIdx = readme.indexOf(startMarker) + startMarker.length;
-          const endIdx = readme.indexOf(endMarker);
+          for (const repo of repos) {
+            const { data: repoData } = await octokit.repos.get({ owner: org, repo: repo.name });
+            const { data: contributors } = await octokit.repos.listContributors({ owner: org, repo: repo.name });
 
-          const newStats = stats.map(stat => `
-          - **${stat.name}**
-            - Stars: ${stat.stars}
-            - Watchers: ${stat.watchers}
-            - Forks: ${stat.forks}
-            - Last Commit: ${stat.commits}
-            - Contributors: ${stat.contributors}
-          `).join('\n');
+            totalStats.totalStars += repoData.stargazers_count;
+            totalStats.totalWatchers += repoData.watchers_count;
+            totalStats.totalForks += repoData.forks_count;
+            totalStats.totalCommits += repoData.size; // Use any appropriate metric for total commits
+            totalStats.totalContributors += contributors.length;
+          }
 
-          readme = `${readme.substring(0, startIdx)}\n${newStats}\n${readme.substring(endIdx)}`;
-          fs.writeFileSync('README.md', readme);
+          return totalStats;
         }
 
-        main().catch(error => {
-          console.error(error);
-          process.exit(1);
-        });
-        EOF
+        console.log(JSON.stringify(await getTotalStats()));
+
+    - name: Update README with global statistics
+      run: |
+        # Replace the actual update logic here
+        # Example:
+        echo "Updating README with global statistics"
 
     - name: Commit changes
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git add README.md
-        git commit -m 'Update statistics in README'
+        git add profile/README.md
+        git commit -m 'chore: Update README statistics'
         git push
