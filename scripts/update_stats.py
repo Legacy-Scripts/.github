@@ -7,8 +7,13 @@ except ModuleNotFoundError:
 
 ORG_NAME = 'Legacy-Framework'
 TARGET_BRANCH = 'test-workflow' # 'main'
-TOKEN = None
-# TOKEN = 'insert_tokeninsert_tokeninsert_tokeninsert_tokeninsert_token' # Remove before commiting it
+TOKEN = None # Don't remove this line
+
+"""
+        Don't bloody share your token !
+        Reset it with 'insert_token' after testing
+"""
+# TOKEN = 'insert_token'
 
 def update_contributors(new_list: list, initial_list: list = []) -> list:
     for person in new_list:
@@ -54,10 +59,10 @@ def update_readme(token:str=None):
     updated_content = f"""
 {start_marker}
 <p align="center">
-    <img alt="Total Stars" src="https://img.shields.io/badge/Stars-{repo_stats["stars"]}★-gold" />
-    <img alt="Total Commits" src="https://img.shields.io/badge/Commits-{repo_stats["commits"]}⇑-darkblue" />
-    <img alt="Total Contributors" src="https://img.shields.io/badge/Contributors-{len(repo_stats["contributors"])}ጰ-blue" />
-    <img alt="Total Forks" src="https://img.shields.io/badge/Forks-{repo_stats["forks"]}↰↱-orange" />
+    <img alt="Total Stars" src="https://img.shields.io/badge/Total_Stars-{repo_stats["stars"]}★-gold" />
+    <img alt="Total Commits" src="https://img.shields.io/badge/Total_Commits-{repo_stats["commits"]}⇑-darkblue" />
+    <img alt="Total Contributors" src="https://img.shields.io/badge/Total_Contributors-{len(repo_stats["contributors"])}ጰ-blue" />
+    <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-{repo_stats["forks"]}↰↱-orange" />
 </p>
 {end_marker}
     """
@@ -89,10 +94,10 @@ def update_readme(token:str=None):
 
 if __name__ == "__main__":
 
-    print(len(sys.argv), sys.argv)
-    
-    if len(sys.argv) < 2 ^ (TOKEN is None or (isinstance(TOKEN, str) and len(TOKEN) < 15)):
-        print("Error: Missing GITHUB_TOKEN argument")
+    print("\nSystem Arguments Valid?", len(sys.argv) > 2, "\nManual Token Override?", TOKEN is not None, "\nValid Token?", (isinstance(TOKEN, str) and len(TOKEN) > 35),"\n")
+
+    if len(sys.argv) < 2 and (TOKEN is None and (isinstance(TOKEN, str) and len(TOKEN) < 35)):
+        print("\nError: Missing GITHUB_TOKEN argument\n")
         sys.exit(1)
 
     github_token = TOKEN or sys.argv[1]
