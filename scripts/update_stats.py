@@ -72,17 +72,6 @@ def update_readme(token:str=None):
     with open(readme_path, 'w') as file:
         file.write("\n".join(updated_readme))
 
-    if token is not None:
-        os.system('git config --global user.email "actions@github.com"')
-        os.system('git config --global user.name "GitHub Actions"')
-        os.system(f'git checkout {TARGET_BRANCH}')
-        os.system(f'git add {readme_path}')
-        os.system('git commit -m "Update README.md with latest stats"')
-        os.system(f'git push origin {TARGET_BRANCH}')
-    else:
-        print('No Token was found for "GITHUB_TOKEN"')
-        print('Keys:', os.environ.keys())
-
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("Error: Missing GITHUB_TOKEN argument")
