@@ -6,9 +6,9 @@ except ModuleNotFoundError:
     from github import Github
 
 ORG_NAME = 'Legacy-Framework'
-TARGET_BRANCH = 'main' # 'test-workflow'
+TARGET_BRANCH = 'test-workflow' # 'main'
 TOKEN = None
-# TOKEN = 'insert_token' # Remove before commiting it
+# TOKEN = 'insert_tokeninsert_tokeninsert_tokeninsert_tokeninsert_token' # Remove before commiting it
 
 def update_contributors(new_list: list, initial_list: list = []) -> list:
     for person in new_list:
@@ -89,7 +89,7 @@ def update_readme(token:str=None):
 
 if __name__ == "__main__":
     
-    if len(sys.argv) < 2 or TOKEN is None or (isinstance(TOKEN, str) and len(TOKEN) < 15):
+    if len(sys.argv) < 2 ^ (TOKEN is None or (isinstance(TOKEN, str) and len(TOKEN) < 15)):
         print("Error: Missing GITHUB_TOKEN argument")
         sys.exit(1)
 
