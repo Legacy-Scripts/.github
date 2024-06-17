@@ -40,6 +40,13 @@
 - [**LGF_Society**](https://github.com/ENT510/LGF_Society): Society management and interaction system.
 - [**LGF-Report-System**](https://github.com/ENT510/LGF-Report-System): Reporting system for managing issues and feedback.
 
-<!-- STATS_START -->
 
+<!-- STATS_START -->
+<p align="center">
+    <img alt="Total Stars" src="https://img.shields.io/badge/Stars-10★-gold" />
+    <img alt="Total Commits" src="https://img.shields.io/badge/Commits-43⛢-green" />
+    <img alt="Total Contributors" src="https://img.shields.io/badge/Contributors-2ጰ-blue" />
+    <img alt="Total Forks" src="https://img.shields.io/badge/Forks-7↰↱-orange" />
+</p>
 <!-- STATS_END -->
+    
