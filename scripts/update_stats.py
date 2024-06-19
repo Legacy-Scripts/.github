@@ -1,4 +1,5 @@
 import os, sys
+
 try:
     from github import Github
 except ModuleNotFoundError:
@@ -24,12 +25,16 @@ def update_contributors(new_list: list, initial_list: list = []) -> list:
 
 def update_readme(token:str=None):
     g = Github(token)
-    org = g.get_organization(ORG_NAME)
+    try:
+        org = g.get_organization(ORG_NAME)
+    except github.GithubException.BadCredentialsException:
+        g = Github(os.getenv('GITHUB_TOKEN'))
+        org = g.get_organization(ORG_NAME)
     
-    os.system('git config --global user.email "actions@github.com"')
-    os.system('git config --global user.name "GitHub Actions"')
-    os.system('git fetch')
-    os.system(f'git checkout {TARGET_BRANCH}')
+    # os.system('git config --global user.email "actions@github.com"')
+    # os.system('git config --global user.name "GitHub Actions"')
+    # os.system('git fetch')
+    # os.system(f'git checkout {TARGET_BRANCH}')
 
     start_marker = '<!-- STATS_START -->'
     end_marker = '<!-- STATS_END -->'
@@ -88,16 +93,16 @@ def update_readme(token:str=None):
     with open(readme_path, 'w') as file:
         file.write("\n".join(updated_readme))
 
-    print("\n     Adding File")
-    os.system(f'git add {readme_path}')
-    print("\n     Commiting File")
-    os.system('git commit -m "chore: update README stats"')
-    print("\n     Pushing Changes")
-    os.system(f'git push origin {TARGET_BRANCH}')
+    # print("\n     Adding File")
+    # os.system(f'git add {readme_path}')
+    # print("\n     Commiting File")
+    # os.system('git commit -m "chore: update README stats"')
+    # print("\n     Pushing Changes")
+    # os.system(f'git push origin {TARGET_BRANCH}')
 
 if __name__ == "__main__":
 
-    print("\nSystem Arguments Valid?", len(sys.argv) > 2, "\nManual Token Override?", TOKEN is not None, "\nValid Token?", (isinstance(TOKEN, str) and len(TOKEN) > 35),"\n")
+    print("\nSystem Arguments Valid?", len(sys.argv) > 1, "\nManual Token Override?", TOKEN is not None, "\nValid Token?", (isinstance(TOKEN, str) and len(TOKEN) > 35),"\n")
 
     if len(sys.argv) < 2 and (TOKEN is None and (isinstance(TOKEN, str) and len(TOKEN) < 35)):
         print("\nError: Missing GITHUB_TOKEN argument\n")

@@ -28,3 +28,13 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.UPDATE_README }}
         run: |
           python scripts/update_stats.py "${{ secrets.UPDATE_README }}"
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m 'Update repository stats'
+          git push origin test-workflow
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
