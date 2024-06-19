@@ -89,7 +89,7 @@ def update_readme(token:str=None):
         elif not markerState:
             updated_readme.append(line)
 
-
+    print("Wrinting to file {}".format(readme_path))
     with open(readme_path, 'w') as file:
         file.write("\n".join(updated_readme))
 
@@ -104,7 +104,7 @@ if __name__ == "__main__":
 
     print("\nSystem Arguments Valid?", len(sys.argv) > 1, "\nManual Token Override?", TOKEN is not None, "\nValid Token?", (isinstance(TOKEN, str) and len(TOKEN) > 35),"\n")
 
-    if len(sys.argv) < 2 and (TOKEN is None and (isinstance(TOKEN, str) and len(TOKEN) < 35)):
+    if len(sys.argv) < 2 and (TOKEN is None or (isinstance(TOKEN, str) and len(TOKEN) < 35)):
         print("\nError: Missing GITHUB_TOKEN argument\n")
         sys.exit(1)
 
