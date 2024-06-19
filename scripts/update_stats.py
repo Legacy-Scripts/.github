@@ -27,11 +27,7 @@ def update_contributors(new_list: list, initial_list: list = []) -> list:
 
 def update_readme(token:str=None):
     g = Github(token)
-    try:
-        org = g.get_organization(ORG_NAME)
-    except github.GithubException.BadCredentialsException:
-        g = Github(os.getenv('GITHUB_TOKEN'))
-        org = g.get_organization(ORG_NAME)
+    org = g.get_organization(ORG_NAME)
     
     # os.system('git config --global user.email "actions@github.com"')
     # os.system('git config --global user.name "GitHub Actions"')
