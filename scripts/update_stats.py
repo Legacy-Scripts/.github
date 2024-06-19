@@ -1,9 +1,11 @@
 import os, sys
 
 try:
+    import github
     from github import Github
 except ModuleNotFoundError:
     os.system("pip install PyGithub")
+    import github
     from github import Github
 
 ORG_NAME = 'Legacy-Framework'
