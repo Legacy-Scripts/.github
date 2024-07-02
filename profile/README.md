@@ -28,12 +28,7 @@
 - [**LGF_Notify**](https://github.com/ENT510/LGF_Notify): Notification system for various events.
 - [**LGF_Banking**](https://github.com/ENT510/LGF_Banking): Comprehensive banking system.
 - [**LGF_PauseMenu**](https://github.com/ENT510/LGF_PauseMenu): Enhanced pause menu with additional features.
-- [**LGF_Society**](https://github.com/ENT510/LGF_Society): Society management and interaction system.
 - [**LGF-Report-System**](https://github.com/ENT510/LGF-Report-System): Reporting system for managing issues and feedback.
-
-
-
-
 
 
 
