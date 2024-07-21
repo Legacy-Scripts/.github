@@ -100,11 +100,12 @@ def update_readme(token):
         <img alt="Total Commits" src="https://img.shields.io/badge/Total_Commits-{total_commits}⇑-darkblue" />
         <img alt="Total Contributors" src="https://img.shields.io/badge/Total_Contributors-{len(total_contributors)}ጰ-blue" />
         <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-{total_forks}↰↱-orange" />
-        <br/>
-        <img alt="Language Pie Chart" src="{pie_chart_url}" />
     </p>
     <!-- STATS_END -->
     """
+
+    # <br/>
+    # <img alt="Language Pie Chart" src="{pie_chart_url}" />
 
     updated_content = content.split('<!-- STATS_START -->')[0] + new_stats[1:] + content.split('<!-- STATS_END -->')[1]
 
