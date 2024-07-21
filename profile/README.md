@@ -35,14 +35,17 @@
 
 
 
-    <!-- STATS_START -->
+        <!-- STATS_START -->
     <p align="center">
         <img alt="Total Stars" src="https://img.shields.io/badge/Total_Stars-14★-gold" />
         <img alt="Total Commits" src="https://img.shields.io/badge/Total_Commits-500⇑-darkblue" />
         <img alt="Total Contributors" src="https://img.shields.io/badge/Total_Contributors-2ጰ-blue" />
         <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-10↰↱-orange" />
+        <br/>
+        <img alt="Language Pie Chart" src="https://quickchart.io/chart?c=%7B%22type%22%3A%20%22pie%22%2C%20%22data%22%3A%20%7B%22labels%22%3A%20%5B%22Lua%22%2C%20%22JavaScript%22%2C%20%22TypeScript%22%5D%2C%20%22datasets%22%3A%20%5B%7B%22data%22%3A%20%5B5%2C%201%2C%201%5D%7D%5D%7D%7D" />
     </p>
     <!-- STATS_END -->
+    
     
     
     
