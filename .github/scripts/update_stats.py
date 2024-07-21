@@ -43,6 +43,8 @@ def update_readme(token):
         total_commits += commits.totalCount
 
     # Read the README file
+    current_directory = os.getcwd()
+    print("Current Working Directory:", current_directory)
     readme_path = 'profile/README.md'
     with open(readme_path, 'r') as file:
         content = file.read()
