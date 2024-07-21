@@ -43,7 +43,7 @@ def update_readme(token):
         total_commits += commits.totalCount
 
     # Read the README file
-    readme_path = '.github/profile/README.md'
+    readme_path = 'profile/README.md'
     with open(readme_path, 'r') as file:
         content = file.read()
 
@@ -59,7 +59,7 @@ def update_readme(token):
     <!-- STATS_END -->
     """
 
-    updated_content = content.split('<!-- STATS_START -->')[0] + new_stats + content.split('<!-- STATS_END -->')[1]
+    updated_content = content.split('<!-- STATS_START -->')[0] + new_stats[1:] + content.split('<!-- STATS_END -->')[1]
 
     # Write the updated content back to the README file
     with open(readme_path, 'w') as file:
@@ -68,7 +68,10 @@ def update_readme(token):
 if __name__ == "__main__":    
     print("\nSystem Arguments Valid?", len(sys.argv) < 2, "\nManual Token Override?", TOKEN is None, "\nValid Token?", (isinstance(TOKEN, str) and len(TOKEN) < 20),"\n")
 
-    if len(sys.argv) < 2 ^ (TOKEN is None and (isinstance(TOKEN, str) and len(TOKEN) < 15)):
+    if TOKEN is None or len(TOKEN) < 15:
+        TOKEN = os.getenv('GITHUB_TOKEN')
+
+    if not (len(sys.argv) < 2 ^ (TOKEN is None and (isinstance(TOKEN, str) and len(TOKEN) < 15))):
         print("\nError: Missing GITHUB_TOKEN argument\n")
         sys.exit(1)
 
