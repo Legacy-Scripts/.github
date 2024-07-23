@@ -30,30 +30,11 @@
 - [**LGF_PauseMenu**](https://github.com/ENT510/LGF_PauseMenu): Enhanced pause menu with additional features.
 - [**LGF-Report-System**](https://github.com/ENT510/LGF-Report-System): Reporting system for managing issues and feedback.
 
-
-
-
-
-
-        <!-- STATS_START -->
-    <p align="center">
-        <img alt="Total Stars" src="https://img.shields.io/badge/Total_Stars-14★-gold" />
-        <img alt="Total Commits" src="https://img.shields.io/badge/Total_Commits-509⇑-darkblue" />
-        <img alt="Total Contributors" src="https://img.shields.io/badge/Total_Contributors-2ጰ-blue" />
-        <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-10↰↱-orange" />
-    </p>
-    <!-- STATS_END -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+<!-- STATS_START -->
+<p align="center">
+  <img alt="Total Stars" src="https://img.shields.io/badge/Total_Stars-14★-gold" />
+  <img alt="Total Commits" src="https://img.shields.io/badge/Total_Commits-509⇑-darkblue" />
+  <img alt="Total Contributors" src="https://img.shields.io/badge/Total_Contributors-2ጰ-blue" />
+  <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-10↰↱-orange" />
+</p>
+<!-- STATS_END -->
