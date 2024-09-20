@@ -21,7 +21,7 @@
       <span style="font-size: 14px; color: #666;">DEVELOPER</span>
     </td>
         <td style="text-align:center;">
-      <a href="https://github.com/Maximus7474">
+      <a href="https://github.com/ViskCY">
         <img src="https://github.com/Legacy-Framework/.github/assets/145626625/4cf11f8b-3fbc-42e8-a3df-92ef09477409" alt="MAXIMUS" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
       </a>
       <br>
