@@ -6,7 +6,7 @@
   <tr>
     <td style="text-align:center;">
       <a href="https://github.com/ENT510">
-        <img src="https://github.com/Legacy-Framework/.github/assets/145626625/e26664e2-6ccc-4767-b901-ade7b4929b39" alt="ENT510" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
+        <img src="https://avatars.githubusercontent.com/u/145626625?v=4" alt="ENT510" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
       </a>
       <br>
       <strong style="font-size: 18px; color: #333;">ENT510</strong><br>
@@ -14,21 +14,23 @@
     </td>
     <td style="text-align:center;">
       <a href="https://github.com/Maximus7474">
-        <img src="https://github.com/Legacy-Framework/.github/assets/145626625/4cf11f8b-3fbc-42e8-a3df-92ef09477409" alt="MAXIMUS" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
+        <img src="https://avatars.githubusercontent.com/u/94017712?v=4" alt="MAXIMUS" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
       </a>
       <br>
       <strong style="font-size: 18px; color: #333;">MAXIMUS</strong><br>
       <span style="font-size: 14px; color: #666;">DEVELOPER</span>
     </td>
-        <td style="text-align:center;">
+    <td style="text-align:center;">
       <a href="https://github.com/ViskCY">
-        <img src="https://github.com/Legacy-Framework/.github/assets/145626625/4cf11f8b-3fbc-42e8-a3df-92ef09477409" alt="MAXIMUS" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
+        <img src="https://avatars.githubusercontent.com/u/109294364?v=4" alt="ViskCY" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
       </a>
       <br>
       <strong style="font-size: 18px; color: #333;">ViskCY</strong><br>
       <span style="font-size: 14px; color: #666;">DEVELOPER</span>
     </td>
+  </tr>
 </table>
+
 
 ### LGF Open Source Resources
 - [**LGF_CORE**](https://github.com/ENT510/LGF_CORE): Core By ENT510 (work in progress).
