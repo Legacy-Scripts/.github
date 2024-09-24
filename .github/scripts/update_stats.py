@@ -104,7 +104,7 @@ def update_readme(token):
 <!-- STATS_END -->
     """
 
-    updated_content = content.split('<!-- STATS_START -->')[0] + new_stats[1:] + content.split('<!-- STATS_END -->')[1]
+    updated_content = content.split('<!-- STATS_START -->')[0] + new_stats[1:] + content.split('<!-- STATS_END -->')[1].rstrip('\n') + '\n'
 
     # Write the updated content back to the README file
     with open(readme_path, 'w') as file:
