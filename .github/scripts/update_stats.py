@@ -8,7 +8,7 @@ except ModuleNotFoundError:
     os.system("pip install PyGithub")
     from github import Github, Auth
 
-ORG_NAME = 'Legacy-Framework'
+ORG_NAME = 'Legacy-Scripts'
 TARGET_BRANCH = 'main'  # 'test-workflow'
 TOKEN = None
 
