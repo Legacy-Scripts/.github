@@ -33,11 +33,13 @@
 
 
 ### LGF Open Source Resources
-- [**LGF_CORE**](https://github.com/ENT510/LGF_CORE): Core By ENT510 (work in progress).
+- [**LGF_Loading**](https://github.com/Legacy-Scripts/LGF_Loading): Loading screen built with mantine.
+- [**LGF_DocumentSystem**](https://github.com/Legacy-Scripts/LGF_DocumentSystem): Document management system based on item metadata.
+- [**LEGACYCORE**](https://github.com/ENT510/LEGACYCORE): Core By ENT510 (work in progress).
+- [**LGF_PauseMenu**](https://github.com/Legacy-Scripts/LGF_PauseMenu): Simple Pause menu for various Framework.
 - [**LGF_OwnableStation**](https://github.com/ENT510/LGF_OwnableStation): Station ownership management system.
 - [**LGF_Notify**](https://github.com/ENT510/LGF_Notify): Notification system for various events.
 - [**LGF_Banking**](https://github.com/ENT510/LGF_Banking): Comprehensive banking system.
-- [**LGF_PauseMenu**](https://github.com/ENT510/LGF_PauseMenu): Enhanced pause menu with additional features.
 - [**LGF-Report-System**](https://github.com/ENT510/LGF-Report-System): Reporting system for managing issues and feedback.
 
 <!-- STATS_START -->
