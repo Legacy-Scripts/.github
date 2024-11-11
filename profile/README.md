@@ -47,9 +47,10 @@
     <img alt="Total Stars" src="https://img.shields.io/badge/Total_Stars-47★-gold" />
     <img alt="Total Commits" src="https://img.shields.io/badge/Total_Commits-329⇑-darkblue" />
     <img alt="Total Contributors" src="https://img.shields.io/badge/Total_Contributors-4ጰ-blue" />
-    <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-26↰↱-orange" />
+    <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-27↰↱-orange" />
 </p>
 <!-- STATS_END -->
+    
     
     
     
