@@ -1,4 +1,4 @@
-# Legacy-Scripts
+## Legacy-Scripts
 
 ## Support Team
 
@@ -12,25 +12,8 @@
       <strong style="font-size: 18px; color: #333;">ENT510</strong><br>
       <span style="font-size: 14px; color: #666;">CREATOR</span>
     </td>
-    <td style="text-align:center;">
-      <a href="https://github.com/Maximus7474">
-        <img src="https://avatars.githubusercontent.com/u/94017712?v=4" alt="MAXIMUS" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
-      </a>
-      <br>
-      <strong style="font-size: 18px; color: #333;">MAXIMUS</strong><br>
-      <span style="font-size: 14px; color: #666;">DEVELOPER</span>
-    </td>
-    <td style="text-align:center;">
-      <a href="https://github.com/ViskCY">
-        <img src="https://avatars.githubusercontent.com/u/109294364?v=4" alt="ViskCY" width="150" style="border-radius:50%; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);"/>
-      </a>
-      <br>
-      <strong style="font-size: 18px; color: #333;">ViskCY</strong><br>
-      <span style="font-size: 14px; color: #666;">DEVELOPER</span>
-    </td>
   </tr>
 </table>
-
 
 ### LGF Open Source Resources
 - [**LGF_Loading**](https://github.com/Legacy-Scripts/LGF_Loading): Loading screen built with mantine.
@@ -50,52 +33,3 @@
     <img alt="Total Forks" src="https://img.shields.io/badge/Total_Forks-28↰↱-orange" />
 </p>
 <!-- STATS_END -->
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
