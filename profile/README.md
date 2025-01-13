@@ -16,7 +16,6 @@
 </table>
 
 ### LGF Open Source Resources
-- [**LGF_Loading**](https://github.com/Legacy-Scripts/LGF_Loading): Loading screen built with mantine.
 - [**LGF_DocumentSystem**](https://github.com/Legacy-Scripts/LGF_DocumentSystem): Document management system based on item metadata.
 - [**LEGACYCORE**](https://github.com/ENT510/LEGACYCORE): Core By ENT510 (work in progress).
 - [**LGF_PauseMenu**](https://github.com/Legacy-Scripts/LGF_PauseMenu): Simple Pause menu for various Framework.
